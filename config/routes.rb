@@ -1,9 +1,9 @@
 AlingnenaApp::Application.routes.draw do
-<<<<<<< HEAD
-  resources :debts
 
-=======
->>>>>>> eadb248f76df2e9d490879290fdfc8e8892a2e85
+  resources :debts
+  match 'products' => 'products#index', :via => :get
+  match 'products/:id' => 'products#show', :via => :get
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,17 @@
+<h1>Show Product</h1>
+<p>
+	<b>Name:</b>
+	<%= @product.name%>
+</p>
+<p>
+	<b>Description:</b>
+	<%= @product.description%>
+</p>
+<p>
+	<b>Cost:</b>
+	<%= number_to_currency @product.cost, :unit => 'PhP'%>
+</p>
+<p>
+	<b>Stock:</b>
+	<%= @product.stock%>
+</p>
