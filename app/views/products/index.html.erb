@@ -18,7 +18,7 @@
 		</tr>
 	<% end %>
 </table>
-
+<p><%= link_to "Create a new Product", new_product_path %></p>
 <%= form_tag search_products_path, :method => :get do %>
 	<%= label_tag "name", "Search by product name:" %>
 	<%= text_field_tag "name" %>

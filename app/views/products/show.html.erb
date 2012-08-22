@@ -1,4 +1,5 @@
-<h3>Show Product</h3>
+<p id="notice"><%= flash[:notice]%></p>
+<h1>Show Product</h1>
 <p>
 	<b>Name:</b>
 	<%= @product.name%>
@@ -15,5 +16,6 @@
 	<b>Stock:</b>
 	<%= @product.stock%>
 </p>
+<%= link_to 'Edit this record', edit_product_path(@product) %> <br />
 <%= link_to('Delete this record', @product,	{ :confirm => 'Are you sure?', :method => :delete }) %> <br />
 <%= link_to 'Back to List of Products', products_path %>
