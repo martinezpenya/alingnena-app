@@ -1,8 +1,10 @@
 AlingnenaApp::Application.routes.draw do
 
   resources :debts
-  match 'products' => 'products#index', :via => :get
-  match 'products/:id' => 'products#show', :via => :get
+  match 'products' => 'products#index', :via => :get, :as => 'products'
+  match 'products/search' => 'products#search', :via => :get, :as => 'search_products'
+  match 'products/:id' => 'products#show', :via => :get, :as => 'product'
+  match 'products/:id' => 'products#destroy', :via => :delete
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

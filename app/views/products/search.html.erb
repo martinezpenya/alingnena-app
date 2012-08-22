@@ -1,6 +1,6 @@
 <p id="notice"><%= flash[:notice]%></p>
 <h1>Listing Products</h1>
-
+<p>Displaying Products with name "<%= params[:name] %>" </p>
 <table>
 	<tr>
 		<th>Name</th>
@@ -19,8 +19,4 @@
 	<% end %>
 </table>
 
-<%= form_tag search_products_path, :method => :get do %>
-	<%= label_tag "name", "Search by product name:" %>
-	<%= text_field_tag "name" %>
-	<%= submit_tag "Search" %>
-<% end %>
+<p><%= link_to "Back to original list", products_path %></p>
