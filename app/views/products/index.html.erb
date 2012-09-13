@@ -8,15 +8,7 @@
 		<th>Cost</th>
 		<th>Stock</th>
 	</tr>
-	<% @products.each do |product| %>
-		<tr>
-			<td><%= product.name %></td>
-			<td><%= product.description %></td>
-			<td><%= number_to_currency product.cost, :unit => 'PhP' %></td>
-			<td><%= product.stock %></td>
-			<td><%= link_to 'Show', product_path(product.id)%></td>
-		</tr>
-	<% end %>
+	<%= render({ :partial => "item", :collection => @products, :spacer_template => "hr" }) %>
 </table>
 <p><%= link_to "Create a new Product", new_product_path %></p>
 <%= form_tag search_products_path, :method => :get do %>
