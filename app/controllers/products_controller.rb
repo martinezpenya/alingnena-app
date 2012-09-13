@@ -1,4 +1,7 @@
 class ProductsController < ApplicationController
+  before_filter :check_if_aling_nena, :only => [:new, :create, :edit, :update, :destroy]
+  # o també
+  #before_filter :check_if_aling_nena, :except => [:index, :show, :search]
   
   def index
     @products = Product.all
@@ -48,4 +51,13 @@ class ProductsController < ApplicationController
   def search
     @products = Product.find_all_by_name(params[:name])
   end
+  
+  private
+    def check_if_aling_nena
+      #esta sentencia redirigirà sempre a products.
+      #redirect_to products_path, :notice => "You must be Aling Nena to access this page."
+      authenticate_or_request_with_http_basic("Products Realm") do |username, password|
+          username == "admin" and password =="admin"
+      end
+    end
 end

@@ -4,4 +4,14 @@ class Product < ActiveRecord::Base
   
   #també val d'esta manera:
   #validates_presence_of :name, :description
+  
+  before_validation :assign_default_description
+  
+  private
+  
+    def assign_default_description
+        if description.blank?
+          self.description = name
+        end
+    end
 end
