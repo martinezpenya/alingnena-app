@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120819180719) do
+ActiveRecord::Schema.define(:version => 20120916112555) do
 
   create_table "debts", :force => true do |t|
     t.string   "name"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(:version => 20120819180719) do
     t.text     "remarks"
   end
 
+  create_table "invoices", :force => true do |t|
+    t.integer  "purchase_id"
+    t.string   "reference_number"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "invoices", ["purchase_id"], :name => "index_invoices_on_purchase_id"
+
   create_table "products", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -29,6 +38,13 @@ ActiveRecord::Schema.define(:version => 20120819180719) do
     t.integer  "stock"
     t.datetime "created_at",                                 :null => false
     t.datetime "updated_at",                                 :null => false
+  end
+
+  create_table "purchases", :force => true do |t|
+    t.text     "description"
+    t.date     "delivered_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
 end

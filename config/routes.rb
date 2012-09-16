@@ -1,5 +1,9 @@
 AlingnenaApp::Application.routes.draw do
 
+  resources :purchases do
+    resource :invoice
+  end
+
   resources :debts
   
   #Le següents linees:

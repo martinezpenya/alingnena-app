@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  purchase: 
+  reference_numer: MyString
+
+two:
+  purchase: 
+  reference_numer: MyString
