@@ -1,7 +1,12 @@
 AlingnenaApp::Application.routes.draw do
 
+  resources :line_items
+
+  resources :suppliers
+
   resources :purchases do
     resource :invoice
+    resources :line_items
   end
 
   resources :debts
