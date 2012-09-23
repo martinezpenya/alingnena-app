@@ -5,6 +5,7 @@ class Product < ActiveRecord::Base
   #validates_presence_of :name, :description
   #has_and_belongs_to_many :purchases
   has_many :line_items
+  has_many :purchases, :through => :line_items, :uniq => true
   
   before_validation :assign_default_description
   
